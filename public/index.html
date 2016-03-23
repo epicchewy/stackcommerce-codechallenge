@@ -1,0 +1,67 @@
+<!doctype html>
+
+<!-- ASSIGN OUR ANGULAR MODULE -->
+<html ng-app="twitterApp">
+<head>
+	<!-- META -->
+	<meta charset="utf-8">
+	<!-- Optimize mobile viewport -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>StackCommerce Front End Challenge</title>
+
+	<!-- STYLESHEETS -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+	<link rel="stylesheet" href="./css/app.css">
+
+	<!-- JS -->
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script><!-- load angular 
+
+	
+	
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-moment/0.10.3/angular-moment.min.js"></script>-->
+	<script src ="./angular-sanitize.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.3/moment.min.js"></script>
+	<script src="js/controllers/main.js"></script> <!-- load controller -->
+	<script src="js/services/twitter.js"></script> <!-- load twitter service -->
+	<script src="js/core.js"></script> <!-- load main application -->
+</head>
+
+<body ng-controller="mainController">
+	<div class="container">
+		<div class = "header-wrapper row">
+	        <div class = "header-inside">
+	            <h1>Who's Tweeting What?</h1>
+	        </div>
+	    </div>
+
+		<!--SEARCH HANDLE-->
+		<div id="tweet-form" class="row">
+			<form>
+				<div class="form-group">
+					<input type="text" class="form-control search-bar" placeholder="@username" ng-model="twitterHandle.data">
+				</div>
+				<button type="submit" class="btn btn-lg search-button" ng-click="search()">Search...</button>
+			</form>
+		</div>
+
+		<!-- LATEST TWEETS -->
+		<div class = "tweet-list-container">
+			<h1 class = "tweet-list-header">Tweets</h1>
+			<div class = "row" ng-repeat = "tweet in tweets">
+				<div class = "single-tweet">
+					<div class = "profile">
+						<img ng-src='{{tweet.user.profile_image_url}}' class = "profile_image"></img>
+						<h3 class = "user_name">{{tweet.user.name}}</h3>
+					</div>
+					<p class = "tweet-text" ng-bind-html="tweet.text | tweetMentions:'_blank'"></p>
+					<p class = "tweet-date"><i>{{tweet.created_at | moment :'fromNow'}}</i></p>
+					<p class = "tweet-symbols"><span class="fa fa-heart"></span> {{tweet.favorite_count}}   <span class="fa fa-retweet"></span> {{tweet.retweet_count}}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

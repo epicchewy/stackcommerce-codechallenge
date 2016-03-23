@@ -1,0 +1,14 @@
+{
+  "name"         : "StackCommerce-Code-Challenge",
+  "version"      : "0.0.1",
+  "description"  : "Front End Challenge Twitter/Nodejs",
+  "main"         : "server.js",
+  "author"       : "Luke Chui",
+  "dependencies" : {
+    "express"         : "latest",
+    "morgan"          : "latest",
+    "body-parser"     : "latest",
+    "method-override" : "latest",
+    "twitter-node-client" : "latest"
+  }
+}
