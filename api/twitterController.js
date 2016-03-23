@@ -16,14 +16,6 @@ var twitter_config = {
     "callBackUrl": config.callback_url
 }
 
-// var twitter_config = {
-//     "consumerKey": "HoaLEJX66CUZJb3skPd39wgL2",
-//     "consumerSecret": "38kaEN96UmaRG30mIn3EvLgx0NaK2viyv2eJ4l7MpAj8oqJgjI",
-//     "accessToken": "	3262596740-JdwC4xCV7oXBvkPlxC4SSubpnSBI472Zfu4LZwb",
-//     "accessTokenSecret": "nZplw9SlfH3LZEYKcoBCUq6XEJexfRyh0HFUra3mSHhz2",
-//     "callBackUrl": "XXX"
-// };
-
 var twitter = new Twitter(twitter_config);
 
 module.exports = {
